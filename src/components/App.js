@@ -22,12 +22,8 @@ const App = () => {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/view">
-            <View />
-          </Route>
-          <Route exact path="/logout">
-            <Logout />
-          </Route>
+          <PrivateRoute path="/view" component={View} />
+          <PrivateRoute path="/logout" component={Logout} />
         </Switch>
       </RouteContainer>
     </AppContainer>
