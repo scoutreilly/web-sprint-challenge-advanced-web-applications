@@ -23,7 +23,7 @@ const Login = () => {
       .post("http://localhost:5000/api/login", login)
       .then((res) => {
         // console.log(res);
-        localStorage.setItem("authToken", res.data.token);
+        localStorage.setItem("token", res.data.token);
         push("/view");
       })
       .catch((e) => {
