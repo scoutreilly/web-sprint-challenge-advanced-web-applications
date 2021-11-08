@@ -11,6 +11,7 @@ import articleServices from "../services/articleServices.js";
 
 // I am getting an error that says target container is not a DOM element. Unless I'm missing something ridiculous, I can't find any guidance anywhere on what this error means or why I'm getting it.
 test("renders component without errors", () => {
+  render(<Article />);
   // articleServices.mockResolvedValueOnce({ data: [] });
   // const { rerender } = render(<Article article={[]} />);
 });
