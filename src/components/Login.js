@@ -19,9 +19,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (login.username !== "Lambda" || login.password !== "School") {
-      setError("Incorrect Username / Password");
-    }
     axios
       .post("http://localhost:5000/api/login", login)
       .then((res) => {
@@ -30,7 +27,8 @@ const Login = () => {
         push("/view");
       })
       .catch((e) => {
-        console.log(e);
+        // console.log(e);
+        setError(e.response.data);
       });
   };
 
@@ -60,7 +58,7 @@ const Login = () => {
               onChange={handleChange}
             />
             {error.error && <p id="error">Error: {error.error}</p>}{" "}
-            {/* {console.log(error)} */}
+            {console.log(error.error)}
             <Button id="submit">Login</Button>
           </FormGroup>
         </ModalContainer>
