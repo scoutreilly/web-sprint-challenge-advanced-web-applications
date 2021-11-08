@@ -32,7 +32,7 @@ const EditForm = (props) => {
   };
 
   useEffect(() => {
-    console.log(editId);
+    // console.log(editId);
     axiosWithAuth()
       .get(`http://localhost:5000/api/articles/${editId}`)
       .then((res) => {

@@ -19,6 +19,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (login.username !== "Lambda" || login.password !== "School") {
+      setError("Incorrect Username / Password");
+    }
     axios
       .post("http://localhost:5000/api/login", login)
       .then((res) => {
@@ -27,8 +30,7 @@ const Login = () => {
         push("/view");
       })
       .catch((e) => {
-        // console.log(e);
-        setError("Incorrect username / password combination.");
+        console.log(e);
       });
   };
 
@@ -54,12 +56,13 @@ const Login = () => {
             <Input
               id="password"
               name="password"
-              type="text"
+              type="password"
               onChange={handleChange}
             />
+            {error.error && <p id="error">Error: {error.error}</p>}{" "}
+            {/* {console.log(error)} */}
             <Button id="submit">Login</Button>
           </FormGroup>
-          {error && <p id="error">{error.error}</p>}
         </ModalContainer>
       </ComponentContainer>
     </div>
